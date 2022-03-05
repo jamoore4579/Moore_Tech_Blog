@@ -4,14 +4,13 @@ const { Post, User, Comment } = require('../models');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
-  console.log('======================');
+
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -42,6 +41,20 @@ router.get('/', (req, res) => {
     });
 });
 
+// redirecting user to homepage after login
+router.get('/login', (req, res) => {
+  if(req.sessionloggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+// signup page
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
 // get single post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
@@ -50,10 +63,9 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_text',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'created_at'
     ],
     include: [
       {
@@ -79,23 +91,13 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       res.render('single-post', {
-        post,
-        loggedIn: req.session.loggedIn
+        post, loggedIn: req.session.loggedIn
       });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
-});
-
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-
-  res.render('login');
 });
 
 module.exports = router;
