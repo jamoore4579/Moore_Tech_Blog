@@ -44,6 +44,23 @@ button:hover {
     margin: 20px;
 }
 
+.blog-title {
+    color: #225ca3;
+    font-size: 25px;
+    margin: 25px;
+    padding: 10px;
+}
+
+.create-btn {
+    color: #ccc;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.create-btn:hover {
+    color: #ccc;
+}
+
 .post-list {
     margin: 0;
     padding: 0;
