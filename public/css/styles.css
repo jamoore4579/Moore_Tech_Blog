@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-body, html, input, textarea {
+body, html {
     height: 100%;
     font-family: 'Courier New', Courier, monospace;
     color: #000;
@@ -34,6 +34,14 @@ button {
   
 button:hover {
     background-color: #3486eb;
+}
+
+.homepage {
+    text-decoration: none;
+    color: #225ca3;
+    font-weight: bold;
+    transition: color .1s;
+    margin: 20px;
 }
 
 .post-list {
