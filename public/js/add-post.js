@@ -11,9 +11,7 @@ async function newFromHandler(event) {
             title,
             post_text
         }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
