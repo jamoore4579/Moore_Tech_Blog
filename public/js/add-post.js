@@ -1,4 +1,4 @@
-async function newFromHandler(event) {
+async function newFormHandler(event) {
     event.preventDefault();
 
 
@@ -20,3 +20,5 @@ async function newFromHandler(event) {
         alert(response.statusText);
     }
 };
+
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler)
