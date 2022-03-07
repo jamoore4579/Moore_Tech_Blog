@@ -15,9 +15,11 @@ async function loginFormHandler(event) {
         });
 
         if (response.ok) {
+            alert('Logging you in now.')
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            let result = await response.json()
+            alert(result.message);
         }
     }
 };
