@@ -23,7 +23,7 @@
   ## Usage
   Users are able to create a sign-in and once logged in the can view the Homepage and Dashboard. The user will able able to add, edit and delete posts. Please view the live Heroku link: https://moore4579-tech-blog.herokuapp.com
 
-  <img src="public/img/ScreenShot.png">
+  <img src="public/img/ScreenShot.PNG">
 
   ## License
   This project is license under MIT
