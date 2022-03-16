@@ -82,7 +82,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/newpost', (req, res) => {
+router.get('/newpost', withAuth, (req, res) => {
   res.render('new-posts');
 });
 
