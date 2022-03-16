@@ -83,7 +83,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 router.get('/newpost', withAuth, (req, res) => {
-  res.render('new-posts');
+  res.render('new-posts',{ loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
